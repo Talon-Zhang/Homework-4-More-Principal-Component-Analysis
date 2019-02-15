@@ -1,0 +1,13 @@
+def dict_merge(x, y):
+    for key in x.keys():
+        if key == b'data':
+            x[key] = np.concatenate([x[key],y[key]])
+        else:
+            x[key] = x[key] + y[key]
+            
+raw_data_dict = unpickle("data/data_batch_1")
+dict_merge(raw_data_dict, unpickle("data/data_batch_2"))
+dict_merge(raw_data_dict, unpickle("data/data_batch_3"))
+dict_merge(raw_data_dict, unpickle("data/data_batch_4"))
+dict_merge(raw_data_dict, unpickle("data/data_batch_5"))
+dict_merge(raw_data_dict, unpickle("data/test_batch"))
